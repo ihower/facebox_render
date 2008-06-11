@@ -7,7 +7,7 @@ FaceboxRender plugin let you use lightbox seamlessly using Facebox library.
 http://handlino.com/blog/2008/02/26/57/
 
 == Install ==
- * download from http://github.com/ihower/facebox-render/
+ * download from http://github.com/ihower/facebox_render/
  * uncompress to /vendor/plugins/facebox_render
  
  Note that you must install Facebox first(see http://famspam.com/facebox/).
