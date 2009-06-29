@@ -1,7 +1,7 @@
 module FaceboxRender
   
   def render_to_facebox( options = {} )
-    options[:template] = "#{default_template_name}.html.erb" if options.empty?
+    options[:template] = "#{default_template_name}" if options.empty?
     
     action_string = render_to_string(:action => options[:action], :layout => false) if options[:action]
     template_string = render_to_string(:template => options[:template], :layout => false) if options[:template]
