@@ -1,5 +1,4 @@
 puts 'Copying files...'
-RAILS_ROOT = '/Users/xedin/work/ruby/dick'
 
 public_path = File.join(RAILS_ROOT, 'public')
 current_path = File.join(File.dirname(__FILE__), 'media') 
