@@ -1,0 +1,51 @@
+= Description
+
+  FaceboxRender improved plugin let you use lightbox seamlessly using Facebox library.
+
+= Install
+
+ script/plugin install git://github.com/xedin/facebox_render.git
+
+= USAGE
+
+== Helper
+  
+  We have facebox_link_to helper (it's will launch loading facebox first, send ajax request second)
+  or you can use link_to_remote, form_remote_tag...etc Ajax helper.
+  Don't use <a href="somelink" ref="facebox">
+
+== Controller
+  
+  Add "include FaceboxRender" to your controller, 
+  or simply put it at /app/controllers/application.rb
+
+  Then in your action:
+
+  respond_to do |format|
+    format.html
+    format.js { render_to_facebox }
+  end
+
+  By Default render the html without layout,
+  otherwise you can pass options[:template], options[:action], options[:partial] or options[:html] string.
+  Passing options[:msg] will pulsate a message.
+
+  If block given, it will yield after facebox script, eg:
+  
+  render_to_facebox do |page|
+    page << "alert('test')"
+  end
+
+  Besides render_facebox, we have close_facebox, redirect_from_facebox.
+
+  respond_to do |format|
+    format.html
+    format.js { close_facebox }
+  end
+
+== Copyright
+
+Initial idea and basic functionality:: Wen-Tien Chang(mailto:ihower@handlino.com)
+Copyright (c) 2008 Handlino Inc. Licensed under the MIT: http://www.opensource.org/licenses/mit-license.php
+
+
