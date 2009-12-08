@@ -1,3 +1,5 @@
+require 'rubygems'
+
 puts 'Copying files...'
 
 public_path = File.join(RAILS_ROOT, 'public')
@@ -11,14 +13,15 @@ images_path      = File.join(public_path, 'images', 'facebox')
 ['facebox.js', 'facebox.pack.js'].each do |js_file|
   dest_file = File.join(javascripts_path, js_file)
   src_file  = File.join(current_path, 'javascripts', js_file)
-  FileUtils.cp_r(src_file, path_file)
+  FileUtils.cp_r(src_file, dest_file)
 end
 
 # copying CSS
 FileUtils.cp_r(File.join(current_path, 'stylesheets', 'facebox.css'), File.join(stylesheets_path, 'facebox.css'))
 
 # copying images
-Dir.mkdir images_path  
+Dir.mkdir(images_path) unless File.exists?(images_path) 
+
 plugin_images_path = File.join(current_path, 'images')
 
 Dir.foreach(plugin_images_path) do |image|
@@ -26,7 +29,7 @@ Dir.foreach(plugin_images_path) do |image|
 
   if File.file?(src_image)
     dest_image = File.join(images_path, image)
-    FileUtils.cp_r(src_image, desc_image)
+    FileUtils.cp_r(src_image, dest_image)
   end
 end
 
