@@ -4,7 +4,7 @@
 
 = Install
 
- script/plugin install git://github.com/xedin/facebox_render.git
+ script/plugin install git://github.com/franciscoj/facebox_render.git
 
 = USAGE
 
