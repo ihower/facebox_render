@@ -1,6 +1,6 @@
 = Description
 
-  FaceboxRender improved plugin let you use lightbox seamlessly using Facebox library.
+FaceboxRender improved plugin let you use lightbox seamlessly using Facebox library.
 
 = Install
 
@@ -10,33 +10,33 @@
 
 == Helper
   
-  We have facebox_link_to helper (it's will launch loading facebox first, send ajax request second)
-  or you can use link_to_remote, form_remote_tag...etc Ajax helper.
-  Don't use <a href="somelink" ref="facebox">
+We have facebox_link_to helper (it's will launch loading facebox first, send ajax request second)
+or you can use link_to_remote, form_remote_tag...etc Ajax helper.
+Don't use <a href="somelink" ref="facebox">
 
 == Controller
   
-  Add "include FaceboxRender" to your controller, 
-  or simply put it at /app/controllers/application.rb
+Add "include FaceboxRender" to your controller, 
+or simply put it at /app/controllers/application.rb
 
-  Then in your action:
+Then in your action:
 
   respond_to do |format|
     format.html
     format.js { render_to_facebox }
   end
 
-  By Default render the html without layout,
-  otherwise you can pass options[:template], options[:layout], options[:action], options[:partial] or options[:html] string.
-  Passing options[:msg] will pulsate a message.
+By Default render the html without layout,
+otherwise you can pass options[:template], options[:layout], options[:action], options[:partial] or options[:html] string.
+Passing options[:msg] will pulsate a message.
 
-  If block given, it will yield after facebox script, eg:
+If block given, it will yield after facebox script, eg:
   
   render_to_facebox do |page|
     page << "alert('test')"
   end
 
-  Besides render_facebox, we have close_facebox, redirect_from_facebox.
+Besides render_facebox, we have close_facebox, redirect_from_facebox.
 
   respond_to do |format|
     format.html
