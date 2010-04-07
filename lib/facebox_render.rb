@@ -1,11 +1,11 @@
 module FaceboxRender
   
   def render_to_facebox( options = {} )
+    l = options.delete(:layout) { false }
     options[:template] = "#{default_template_name}" if options.empty?
-    options[:layout] = options[:layout].nil? ? false : options[:layout]
     
-    action_string = render_to_string(:action => options[:action], :layout => options[:layout]) if options[:action]
-    template_string = render_to_string(:template => options[:template], :layout => options[:layout]) if options[:template]
+    action_string = render_to_string(:action => options[:action], :layout => l) if options[:action]
+    template_string = render_to_string(:template => options[:template], :layout => l) if options[:template]
     
     render :update do |page|
       page << "jQuery.facebox(#{action_string.to_json})" if options[:action]
