@@ -48,4 +48,11 @@ module FaceboxRender
     end
   end
   
+  # redirect to another facebox page
+  def redirect_to_facebox(url)
+    render :update do |page|
+      page << "$.getScript('#{url}')"
+    end
+  end
+  
 end
