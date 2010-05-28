@@ -4,14 +4,17 @@ FaceboxRender improved plugin let you use lightbox seamlessly using Facebox libr
 
 = Install
 
- script/plugin install git://github.com/ihower/facebox_render.git
+* script/plugin install git://github.com/ihower/facebox_render.git (for Rails 2)
+* rails plugin install git://github.com/ihower/facebox_render.git (for Rails 3)
 
 = USAGE
 
 == Helper
-  
-We have facebox_link_to helper (it's will launch loading facebox first, send ajax request second)
-or you can use link_to_remote, form_remote_tag...etc Ajax helper.
+
+* facebox_link_to helper, it's will launch loading facebox first, send ajax request second)
+* link_to_remote, form_remote_tag ...etc Ajax helper. (for Rails 2)
+* link_to :remote => true, form_for :remote => true ...etc Ajax helper (for Rails 3)
+
 Don't use <a href="somelink" ref="facebox">
 
 == Controller

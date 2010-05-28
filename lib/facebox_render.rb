@@ -2,16 +2,27 @@ module FaceboxRender
   
   def render_to_facebox( options = {} )
     l = options.delete(:layout) { false }
-    options[:template] = "#{default_template_name}" if options.empty?
     
-    action_string = render_to_string(:action => options[:action], :layout => l) if options[:action]
-    template_string = render_to_string(:template => options[:template], :layout => l) if options[:template]
+    if options[:action]
+      s = render_to_string(:action => options[:action], :layout => l)
+    elsif options[:template]
+      s = render_to_string(:template => options[:template], :layout => l)
+    elsif !options[:partial] && !options[:html]
+      s = render_to_string(:layout => l)
+    end
     
     render :update do |page|
-      page << "jQuery.facebox(#{action_string.to_json})" if options[:action]
-      page << "jQuery.facebox(#{template_string.to_json})" if options[:template]
-      page << "jQuery.facebox(#{(render :partial => options[:partial]).to_json})" if options[:partial]
-      page << "jQuery.facebox(#{options[:html].to_json})" if options[:html]
+      if options[:action]
+        page << "jQuery.facebox(#{s.to_json})"
+      elsif options[:template]
+        page << "jQuery.facebox(#{s.to_json})"
+      elsif options[:partial]
+        page << "jQuery.facebox(#{(render :partial => options[:partial]).to_json})"
+      elsif options[:html]
+        page << "jQuery.facebox(#{options[:html].to_json})"
+      else
+        page << "jQuery.facebox(#{s.to_json})"
+      end
       
       if options[:msg]
         page << "jQuery('#facebox .content').prepend('<div class=\"message\">#{options[:msg]}</div>')"
