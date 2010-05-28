@@ -4,7 +4,7 @@ FaceboxRender improved plugin let you use lightbox seamlessly using Facebox libr
 
 = Install
 
- script/plugin install git://github.com/franciscoj/facebox_render.git
+ script/plugin install git://github.com/ihower/facebox_render.git
 
 = USAGE
 
@@ -43,9 +43,13 @@ Besides render_facebox, we have close_facebox, redirect_from_facebox.
     format.js { close_facebox }
   end
 
-== Copyright
+= Authors & Contributors
 
-Initial idea and basic functionality:: Wen-Tien Chang(mailto:ihower@handlino.com)
-Copyright (c) 2008 Handlino Inc. Licensed under the MIT: http://www.opensource.org/licenses/mit-license.php
+* Wen-Tien Chang http://ihower.tw
+* Francisco J. http://github.com/franciscoj
+* Pavel Y. http://github.com/xedin
+* Blake Chambers
 
+= License
 
+Licensed under the MIT: http://www.opensource.org/licenses/mit-license.php
